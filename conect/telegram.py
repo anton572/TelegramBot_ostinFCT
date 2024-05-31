@@ -42,6 +42,9 @@ class telegrambot():
             return None
 
         self._bot.message_handler(*args,**kwargs)(functhion)
+    def close(self):
+        self._bot.close()
+        del self._bot
     def iswork(self):
         try:
             user = self._bot.get_me()
