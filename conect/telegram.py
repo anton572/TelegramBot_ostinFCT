@@ -32,7 +32,7 @@ class telegrambot():
         self.subscraibs(self.commands,content_types=["text"])
     def run(self):
         try:
-            self._bot.polling(non_stop=True,interval=0)
+            self._bot.polling(interval=0)
         except Exception as Error:
             self.Loger.printError(Error)
             self.error=Error
