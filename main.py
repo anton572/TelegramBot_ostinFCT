@@ -21,6 +21,7 @@ def start(token):
         loger.print("telegrambot start")
         telegrambot.run()
     finally:
+        telegrambot._bot.close()
         del traid
 
 if __name__ == '__main__':
