@@ -2,7 +2,7 @@ from flask import Flask
 class Flaskserver():
     def __init__(self):
         self.app=Flask("host")
-        self.subscraib(self.respons,'/{M}')
+        self.subscraib(self.respons,'/<M>')
     def respons(self,M):
         return M
     def run(self):
