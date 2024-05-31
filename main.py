@@ -13,7 +13,7 @@ def start(token):
         Flaskse=Flaskserver.Flaskserver()
         loger.print("telegrambot init")
         telegrambot.init()
-
+        Flaskse.subscraib(loger.log_all,'/LOGER')
         telegrambot.commands.set('start_factorio',server.strart)
 
         traid=threading.Thread(target=Flaskse.run)

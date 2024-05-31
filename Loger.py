@@ -20,6 +20,9 @@ class Loger(ALoger):
         t.close()
     def get_loger(self,name)->ALoger:
         return DownLoger(name,self)
+    def log_all(self):
+        with open(self.name,'r') as F:
+            return F.read()
     def close(self):
         pass
 class DownLoger(ALoger):
