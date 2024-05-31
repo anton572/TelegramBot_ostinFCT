@@ -30,6 +30,7 @@ class telegrambot():
         self.Loger=Loger
     def init(self):
         self.subscraibs(self.commands,content_types=["text"])
+        self.commands.set('hi',self.hi)
     def hi(self,ms,data):
         self._bot.send_message(data.chat.id,"Привет")
     def run(self):
