@@ -1,5 +1,3 @@
 Flask
 pytelegrambotapi
 requests
-threading
-datetime
