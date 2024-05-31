@@ -19,7 +19,7 @@ class command():
             self.Loger.printError(ValueError(massage+" does not exist"))
             return None
         self.Loger.print(massage)
-        self.functhion_name_command[command[0]](*command[1:])
+        self.functhion_name_command[command[0]](command[1:],data)
 
 
 
@@ -30,6 +30,8 @@ class telegrambot():
         self.Loger=Loger
     def init(self):
         self.subscraibs(self.commands,content_types=["text"])
+    def hi(self,ms,data):
+        self._bot.send_message(data.chat.id,"Привет")
     def run(self):
         try:
             self._bot.polling(interval=0)

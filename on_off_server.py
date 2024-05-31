@@ -6,8 +6,8 @@ class server():
         self.__start,self.__stop=start,stop
         self.Loger=Loger
     @wrapper.ERRORsenser
-    def strart(self):
+    def strart(self,*args,**kwargs):
         requests.request('POST',self.__start,params=self.__token)
     @wrapper.ERRORsenser
-    def stop(self):
+    def stop(self,*args,**kwargs):
         requests.request('POST',self.__stop,params=self.__token)
