@@ -1,6 +1,6 @@
 import conect.telegram as telegram
 import conect.Flaskserver as Flaskserver
-import on_off_server
+import conect.VMcontroler as VMcontroler
 import argument
 import threading
 import Loger
@@ -9,13 +9,14 @@ def start(token):
     try:
         loger=Loger.Loger()
         telegrambot=telegram.telegrambot(token,Loger=loger.get_loger("TeleBot"))
-        server=on_off_server.server(argument.Token_WEB,argument.Start_WEB,argument.Stop_WEB,Loger=loger.get_loger("ServControl"))
+        VM=VMcontroler.userVM(argument.vm_data,argument.P,argument.Z,argument.N,Loger=loger.get_loger("VMcontroler"))
         Flaskse=Flaskserver.Flaskserver()
         loger.print("telegrambot init")
         telegrambot.init()
         Flaskse.subscraib(loger.log_all,'/LOGER')
-        telegrambot.commands.set('start_factorio',server.strart)
-        Flaskse.subscraib(server.stop,'/stop')
+        telegrambot.commands.set('start_factorio',VM.StartVM)
+        Flaskse.subscraib(VM.StopVM,'/stop')
+        Flaskse.subscraib(VM.get_stait,'/get')
         traid=threading.Thread(target=Flaskse.run)
         traid.start()
         loger.print("telegrambot start")
@@ -23,6 +24,5 @@ def start(token):
     finally:
         telegrambot._bot.close()
         del traid
-
-if __name__ == '__main__':
+if __name__ == '__main__s':
     start(argument.token)

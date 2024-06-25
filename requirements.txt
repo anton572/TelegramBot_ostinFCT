@@ -1,3 +1,5 @@
 Flask
 pytelegrambotapi
 requests
+google-auth
+google-cloud-compute

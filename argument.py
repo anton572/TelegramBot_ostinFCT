@@ -1,5 +1,9 @@
 import os
+import json
 token=os.environ.get('API_token_bot')
-Token_WEB=os.environ.get('Token_WEB')
-Start_WEB=os.environ.get('Start_WEB')
-Stop_WEB=os.environ.get('Stop_WEB')
+vm_data=os.environ.get("VMDATA")
+
+vm_data=json.loads(vm_data)
+vm_data['private_key']=vm_data['private_key'].replace('{__--]','\n')
+
+P,Z,N=os.environ.get("PZN").split('\\')
