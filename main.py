@@ -9,7 +9,7 @@ def start(token):
     try:
         loger=Loger.Loger()
         telegrambot=telegram.telegrambot(token,Loger=loger.get_loger("TeleBot"))
-        VM=VMcontroler.userVM(argument.vm_data,argument.P,argument.Z,argument.N,Loger=loger.get_loger("VMcontroler"))
+        VM=VMcontroler.userVM(argument.P,argument.Z,argument.N,Loger=loger.get_loger("VMcontroler"))
         Flaskse=Flaskserver.Flaskserver()
         loger.print("telegrambot init")
         telegrambot.init()
@@ -24,5 +24,5 @@ def start(token):
     finally:
         telegrambot._bot.close()
         del traid
-if __name__ == '__main__s':
+if __name__ == '__main__':
     start(argument.token)

@@ -1,9 +1,8 @@
 from google.oauth2 import service_account
 from google.cloud import compute_v1
 class userVM():
-    def __init__(self,credentials_info,P,Z,N,Loger=None):
-        credentials = service_account.Credentials.from_service_account_info(credentials_info)
-        self._instance_client = compute_v1.InstancesClient(credentials=credentials)
+    def __init__(self,P,Z,N,Loger=None):
+        self._instance_client = compute_v1.InstancesClient()
         self.project_id=P
         self.zone=Z
         self.instance_name=N
