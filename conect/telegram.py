@@ -10,7 +10,7 @@ class command():
         if not isinstance(name,str):
             raise ValueError("name is not str this is:"+str(type(name)))
         self.functhion_name_command[name]=command
-    def __call__(self, data):
+    def mas(self, data):
         massage=data.text
         if not massage.startswith('/'):
             return None
@@ -24,18 +24,20 @@ class command():
 
 
 class telegrambot():
+
     def __init__(self,token:str,Loger):
         self._bot=telebot.TeleBot(token)
         self.commands=command(Loger.get_loger('command'))
         self.Loger=Loger
     def init(self):
-        self.subscraibs(self.commands,content_types=["text"])
+        self.subscraibs(self.commands.mas,content_types=["text"])
+
         self.commands.set('hi',self.hi)
     def hi(self,ms,data):
         self._bot.send_message(data.chat.id,"Привет")
     def run(self):
         try:
-            self._bot.polling(interval=0)
+            self._bot.polling(interval=0.1)
         except Exception as Error:
             self.Loger.printError(Error)
             self.error=Error

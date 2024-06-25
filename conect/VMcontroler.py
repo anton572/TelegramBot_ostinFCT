@@ -8,18 +8,24 @@ class userVM():
         self.instance_name=N
         self.Loger=Loger
     def StartVM(self):
-        operation = self._instance_client.start(
-            project=self.project_id,
-            zone=self.zone,
-            instance=self.instance_name)
-        self.Loger.print(operation.result())
+        try:
+            operation = self._instance_client.start(
+                project=self.project_id,
+                zone=self.zone,
+                instance=self.instance_name)
+            self.Loger.print(operation.result())
+        except Exception as E:
+            self.Loger.printError(E)
     def StopVM(self):
-        operation = self._instance_client.stop(
-            project=self.project_id,
-            zone=self.zone,
-            instance=self.instance_name
-        )
-        self.Loger.print(operation.result())
+        try:
+            operation = self._instance_client.stop(
+                project=self.project_id,
+                zone=self.zone,
+                instance=self.instance_name
+            )
+            self.Loger.print(operation.result())
+        except Exception as E:
+            self.Loger.printError(E)
     def get_stait(self):
         request =compute_v1.AggregatedListInstancesRequest()
         request.project =self.project_id
