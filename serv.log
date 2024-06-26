@@ -4,3 +4,13 @@
 [23:05:50-25.06.2024]telegrambot init
 [23:05:52-25.06.2024][VMcontroler]None
 [23:05:52-25.06.2024]telegrambot start
+[14:52:24-26.06.2024]telegrambot init
+[14:52:25-26.06.2024][VMcontroler]None
+[14:52:25-26.06.2024]telegrambot start
+[14:52:32-26.06.2024][TeleBot][command]/start_factorio
+[14:52:33-26.06.2024][TeleBot]<Error>TypeError; Args:('userVM.StartVM() takes 1 positional argument but 3 were given',)
+[15:21:00-26.06.2024]telegrambot start
+[15:21:18-26.06.2024][TeleBot][command]/hi
+[15:21:36-26.06.2024][TeleBot][command]/start_factorio
+[15:21:37-26.06.2024][VMcontroler]None
+[15:23:38-26.06.2024]telegrambot start

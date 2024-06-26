@@ -41,13 +41,14 @@ class telegrambot():
         except Exception as Error:
             self.Loger.printError(Error)
             self.error=Error
+            raise Error
     def subscraibs(self,functhion,*args,**kwargs):
         if not callable(functhion):
             self.Loger.printError(ValueError("functhion is not callable"+str(functhion)))
             return None
 
         self._bot.message_handler(*args,**kwargs)(functhion)
-    def close(self):
+    def stop(self):
         self._bot.close()
         del self._bot
     def iswork(self):
