@@ -29,6 +29,7 @@ class telegrambot():
         self._bot=telebot.TeleBot(token)
         self.commands=command(Loger.get_loger('command'))
         self.Loger=Loger
+        self.st=True
     def init(self):
         self.subscraibs(self.commands.mas,content_types=["text"])
 
@@ -37,7 +38,8 @@ class telegrambot():
         self._bot.send_message(data.chat.id,"Привет")
     def run(self):
         try:
-            self._bot.polling(interval=0.1)
+            while self.st:
+                self._bot.polling()
         except Exception as Error:
             self.Loger.printError(Error)
             self.error=Error
@@ -49,8 +51,12 @@ class telegrambot():
 
         self._bot.message_handler(*args,**kwargs)(functhion)
     def stop(self):
+        self.st=False
         try:
-            self._bot.close()
+            self._bot.stop_bot()
+        except:pass
+        try:
+            self._bot.stop_polling()
         except:pass
         del self._bot
     def iswork(self):
