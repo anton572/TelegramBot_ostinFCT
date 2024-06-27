@@ -24,8 +24,7 @@ class servaise():
                 self.instans.run()
             except:
                 if self.__work:
-                    try:self.stop()
-                    except:pass
+                    self.stop()
                     time.sleep(100)
                     self.__servais.__init__(self.instans,*self._args,**self._kwargs)
 
