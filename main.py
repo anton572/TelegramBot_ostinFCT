@@ -8,9 +8,8 @@ from servaise_controler import servaise
 def start(token):
     try:
         loger=Loger.Loger()
-        TS=servaise(telegram.telegrambot)
-        TS.start(token,Loger=loger.get_loger("TeleBot"))
-        telegrambot= TS.get_instans()
+        telegrambot=telegram.telegrambot(token,Loger=loger.get_loger("TeleBot"))
+        telegrambot.init()
         VM=VMcontroler.userVM(argument.P,argument.Z,argument.N,Loger=loger.get_loger("VMcontroler"))
         Flaskse=Flaskserver.Flaskserver()
         Flaskse.subscraib(lambda :loger.log_all().replace('\n','<div>'),'/LOGER')
@@ -23,11 +22,11 @@ def start(token):
         traid=threading.Thread(target=Flaskse.run)
         traid.start()
         loger.print("telegrambot start")
-        TS.run()
+        telegrambot.run()
         while True:
             pass
     finally:
-        TS.stop()
+        telegrambot.stop()
         del traid
 if __name__ == '__main__':
     start(argument.token)

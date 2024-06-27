@@ -52,11 +52,12 @@ class telegrambot():
         self._bot.message_handler(*args,**kwargs)(functhion)
     def stop(self):
         self.st=False
-        try:
-            self._bot.stop_bot()
-        except:pass
+
         try:
             self._bot.stop_polling()
+        except:pass
+        try:
+            self._bot.stop_bot()
         except:pass
         del self._bot
     def iswork(self):
