@@ -23,8 +23,7 @@ def start(token):
         traid.start()
         loger.print("telegrambot start")
         telegrambot.run()
-        while True:
-            pass
+
     finally:
         telegrambot.stop()
         del traid
