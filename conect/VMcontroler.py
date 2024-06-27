@@ -33,11 +33,11 @@ class userVM():
         respons=self._instance_client.aggregated_list(request=request)
         for zone, response in respons:
             self.Loger.print(zone+"___")
-            if response.instances and self.zone == zone:
+            if response.instances and self.zone in zone:
                 self.Loger.print(response.instances)
                 for instance in response.instances:
 
                     if instance.name==self.instance_name:
                         stait=instance.status
                         return stait
-        return None
+        return 'none_stait'

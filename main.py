@@ -13,7 +13,7 @@ def start(token):
         telegrambot= TS.get_instans()
         VM=VMcontroler.userVM(argument.P,argument.Z,argument.N,Loger=loger.get_loger("VMcontroler"))
         Flaskse=Flaskserver.Flaskserver()
-        Flaskse.subscraib(loger.log_all,'/LOGER')
+        Flaskse.subscraib(lambda :loger.log_all().replace('\n','<div><\div>'),'/LOGER')
         telegrambot.commands.set('start_factorio',lambda *a,**k:VM.StartVM())
         Flaskse.subscraib(VM.StopVM,'/stop')
         Flaskse.subscraib(VM.get_stait,'/get')
