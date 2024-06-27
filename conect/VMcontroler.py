@@ -18,7 +18,7 @@ class userVM():
             self.Loger.printError(E)
     def StopVM(self):
         try:
-            self.Loger.print(f"{self.project_id},{self.zone},{self.instance_name}")
+            #self.Loger.print(f"{self.project_id},{self.zone},{self.instance_name}")
             operation = self._instance_client.stop(
                 project=self.project_id,
                 zone=self.zone,
