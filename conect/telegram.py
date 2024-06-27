@@ -49,7 +49,9 @@ class telegrambot():
 
         self._bot.message_handler(*args,**kwargs)(functhion)
     def stop(self):
-        self._bot.close()
+        try:
+            self._bot.close()
+        except:pass
         del self._bot
     def iswork(self):
         try:
